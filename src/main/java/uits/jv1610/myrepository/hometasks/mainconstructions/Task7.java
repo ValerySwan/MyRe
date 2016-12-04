@@ -18,7 +18,7 @@ public class Task7 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         Random random =  new Random();
-        int[][] array = new int [5][5];
+        int[][] array = new int [7][9];
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 array[i][j] = random.nextInt(20);
@@ -51,9 +51,9 @@ public class Task7 {
 //        System.out.println("");
             for (int i = 0; i < arr.length; i++) {
                 int[][] arr1 = new int[arr.length][arr[i].length];
-                System.arraycopy(arr[i], arr.length - position, arr1[i],0, position); 
-                System.arraycopy(arr[i], 0, arr1[i],position, arr.length-position);
-                for(int j = 0; j < arr1.length; j++){
+                System.arraycopy(arr[i], arr[i].length - position, arr1[i],0, position); 
+                System.arraycopy(arr[i], 0, arr1[i],position, arr1[i].length-position);
+                for(int j = 0; j < arr1[i].length; j++){
                 System.out.print(arr1[i][j] + " ");
             }
             System.out.println("");
@@ -65,8 +65,8 @@ public class Task7 {
         for (int i = 0; i < arr.length; i++) {
             for(int j = 0; j < arr[i].length; j++){
                 int[][] arr1 = new int[arr.length][arr[i].length];
-                System.arraycopy(arr[i], 0, arr1[i],arr.length-position , position); 
-                System.arraycopy(arr[i], position, arr1[i],0,arr.length-position);
+                System.arraycopy(arr[i], 0, arr1[i],arr1[i].length-position , position); 
+                System.arraycopy(arr[i], position, arr1[i],0,arr1[i].length-position);
                 System.out.print(arr1[i][j] + " ");
             }
             System.out.println("");
@@ -75,7 +75,7 @@ public class Task7 {
     }
     
     static void moveUp(int[][] arr, int position){
-        int[][] arr1 = new int[arr.length][arr.length];
+        int[][] arr1 = new int[arr.length][arr[0].length];
         for (int i = 0; i < arr.length; i++) {
             int newLine = i-position;
             if(newLine < 0){
@@ -94,7 +94,7 @@ public class Task7 {
     }    
     
     static void moveDown(int[][] arr, int position){
-        int[][] arr1 = new int[arr.length][arr.length];
+        int[][] arr1 = new int[arr.length][arr[0].length];
         for (int i = 0; i < arr.length; i++) {
             int newLine = i + position;
             if(newLine >= arr.length){
